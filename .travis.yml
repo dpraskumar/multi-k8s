@@ -20,7 +20,7 @@ before_install:
   - gcloud config set compute/zone asia-south1-a
   - gcloud container clusters get-credentials pkdtech-trial-multicluster-2
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker built -t dpraskumar/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t dpraskumar/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker-run dpraskumar/react-test npm test -- --coverage
