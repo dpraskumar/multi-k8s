@@ -5,7 +5,7 @@ env:
   global:
     - GIT_SHA=$(git rev-parse HEAD)
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
-    - CLOUDSDK_CORE_CHECK_GCE_METADATA=0
+    - CLOUDSDK_CORE_CHECK_GCE_METADATA=False
 
 services:
   - docker
