@@ -5,6 +5,7 @@ env:
   global:
     - GIT_SHA=$(git rev-parse HEAD)
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+    - CLOUDSDK_CORE_CHECK_GCE_METADATA=0
 
 services:
   - docker
@@ -17,7 +18,7 @@ before_install:
   - gcloud auth active-service-account --key-file service-account.json
   - gcloud config set project main-reducer-313812
   - gcloud config set compute/zone asia-south1-a
-  - gcloud container clusters get-credentials multi-cluster
+  - gcloud container clusters get-credentials pkdtech-trial-multicluster-2
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker built -t dpraskumar/react-test -f ./client/Dockerfile.dev ./client
 
