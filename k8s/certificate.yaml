@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+ 
+kind: Certificate
+metadata:
+  name: mopp-in-tls
+spec:
+  secretName: mopp-in
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: mopp.in
+  dnsNames:
+    - mopp.in
+    - www.mopp.in
